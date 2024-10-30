@@ -16,7 +16,7 @@ Y = dataset[:,0:1]
 
 #创建模型
 model = Sequential()
-model.add(Dense(223, input_dim=8, init='uniform', activation='relu')) 
+model.add(Dense(222, input_dim=8, init='uniform', activation='relu')) 
 model.add(Dense(100, init='uniform', activation='relu'))
 model.add(Dense(1, init='uniform', activation='sigmoid'))
 
