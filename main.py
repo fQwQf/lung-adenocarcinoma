@@ -14,15 +14,18 @@ dataset = numpy.loadtxt("FeaturesWithLabels-1.csv", delimiter=",")
 X = dataset[:,1:]
 Y = dataset[:,0:1]
 
+print(X)
+print(Y)
+
 #创建模型
 model = Sequential()
-model.add(Dense(222, input_dim=8, init='uniform', activation='relu')) 
-model.add(Dense(100, init='uniform', activation='relu'))
-model.add(Dense(1, init='uniform', activation='sigmoid'))
+model.add(Dense(222, activation='relu')) 
+model.add(Dense(100, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
 
 #训练模型
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']) # Fit the model
-model.fit(X, Y, nb_epoch=150, batch_size=10)
+model.fit(X, Y)
 
 #评估模型
 scores = model.evaluate(X, Y)
