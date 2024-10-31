@@ -24,9 +24,9 @@ model.add(Dense(100, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
 #训练模型
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']) # Fit the model
+model.compile(optimizer='rmsprop',loss='binary_crossentropy',metrics=['accuracy']) # Fit the model
 model.fit(X, Y)
 
 #评估模型
-scores = model.evaluate(X, Y)
+scores = model.evaluate(X, Y, batch_size=3)
 print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
